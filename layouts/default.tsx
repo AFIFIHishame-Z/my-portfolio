@@ -4,12 +4,12 @@ import NavBar from "~/components/header/NavBar";
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <div>
-      <header>
+    <div className="flex flex-col h-screen justify-between">
+      <header className="relative z-50">
         <NavBar />
       </header>
-      <main>{children}</main>
-      <footer>fo oter</footer>
+      <main className="mb-auto">{children}</main>
+      <footer>dcd</footer>
     </div>
   );
 }

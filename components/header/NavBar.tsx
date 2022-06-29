@@ -6,7 +6,7 @@ import ThemeSwitcher from "./ThemeSwitcher";
 const navItems = [
   {
     title: "home",
-    path: "/",
+    path: "#home",
   },
   {
     title: "about",
@@ -24,9 +24,21 @@ const navItems = [
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
+
+  const handleClick = (e: any) => {
+    e.preventDefault();
+    const target = e.target.getAttribute("href");
+    const location = document.querySelector(target)?.offsetTop;
+    if (location)
+      window.scrollTo({
+        left: 0,
+        top: location - 85,
+      });
+  };
+
   return (
-    <div className="flex items-center justify-between md:justify-start p-5 bg-white dark:bg-primary drop-shadow-md">
-      <MobileNav open={open} />
+    <div className="flex items-center fixed w-full justify-between md:justify-start p-5 bg-white dark:bg-primary drop-shadow-md">
+      <MobileNav open={open} setOpen={setOpen} />
       <div>
         <h1 className="font-extrabold text-2xl md:text-4xl text-primary-light dark:text-white">
           H.AFIFI
@@ -38,6 +50,7 @@ export default function NavBar() {
           <a
             className="font-bold text-xl capitalize border-collapse w-[100px] text-center text-primary-light dark:text-white"
             href={item.path}
+            onClick={handleClick}
           >
             {item.title}
           </a>
@@ -52,7 +65,19 @@ export default function NavBar() {
     </div>
   );
 }
-function MobileNav({ open }: { open: boolean }) {
+function MobileNav({ open, setOpen }: { open: boolean; setOpen: any }) {
+  const handleClick = (e: any) => {
+    e.preventDefault();
+    setOpen(!open);
+    const target = e.target.getAttribute("href");
+    const location = document.querySelector(target)?.offsetTop;
+    if (location)
+      window.scrollTo({
+        left: 0,
+        top: location - 85,
+      });
+  };
+
   return (
     <div
       className={`absolute top-0 left-0 h-screen w-screen bg-white  dark:bg-primary transform ${
@@ -72,7 +97,9 @@ function MobileNav({ open }: { open: boolean }) {
               key={i}
               className="mx-4 text-xl font-medium my-4 text-primary-light dark:text-white"
             >
-              <Link href={item.path}>{item.title}</Link>
+              <a href={item.path} onClick={handleClick}>
+                {item.title}
+              </a>
             </li>
           ))}
         </ul>
