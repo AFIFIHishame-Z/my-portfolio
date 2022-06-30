@@ -46,11 +46,12 @@ export default function NavBar() {
       </div>
 
       <div className="hidden md:flex flex-grow justify-center space-x-5 items-center">
-        {navItems.map((item) => (
+        {navItems.map((item, i) => (
           <a
             className="font-bold text-xl capitalize border-collapse w-[100px] text-center text-primary-light dark:text-white"
             href={item.path}
             onClick={handleClick}
+            key={i}
           >
             {item.title}
           </a>

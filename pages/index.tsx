@@ -1,9 +1,20 @@
 import type { NextPage } from "next";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import About from "~/components/about/About";
+import Contact from "~/components/contacts/Contact";
 import HomeComponent from "~/components/home/HomeComponent";
 import ParticlesBackground from "~/components/ParticlesBackground";
+import Projects from "~/components/projects/Projects";
+import prisma from "~/lib/prisma";
+import { fillUser } from "~/slices/userSlice";
 
-const Home: NextPage = () => {
+const Home: NextPage = (props: any) => {
+  const dipsatch = useDispatch();
+  useEffect(() => {
+    dipsatch(fillUser(props.user));
+  }, []);
+
   return (
     <section className="mt-32 md:mt-0">
       <article id="home">
@@ -12,23 +23,11 @@ const Home: NextPage = () => {
       <article id="about">
         <About />
       </article>
-      <article id="projects" className="p-5">
-        <div className="bg-white dark:bg-primary rounded-lg p-5">
-          {Array.from({ length: 100 }).map((_, i) => (
-            <h1 className="font-bold text-center text-red-600 dark:text-white">
-              ❤️ I Love You Ghizlane ❤️
-            </h1>
-          ))}
-        </div>
+      <article id="projects">
+        <Projects />
       </article>
-      <article id="contact" className="p-5">
-        <div className="bg-white dark:bg-primary rounded-lg p-5">
-          {Array.from({ length: 100 }).map((_, i) => (
-            <h1 className="font-bold text-center text-red-600 dark:text-white">
-              ❤️ Chtiii anaa Kan7maaa9 3lik ❤️
-            </h1>
-          ))}
-        </div>
+      <article id="contact">
+        <Contact />
       </article>
       <article
         style={{
@@ -44,3 +43,17 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export async function getStaticProps() {
+  const user = await prisma?.user.findFirstOrThrow({
+    where: {
+      email: "hishame.afifi1997@gmail.com",
+    },
+  });
+  if (user)
+    return {
+      props: {
+        user: user,
+      },
+    };
+}

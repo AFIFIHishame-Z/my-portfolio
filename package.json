@@ -2,6 +2,9 @@
   "name": "my-portfolio",
   "version": "0.1.0",
   "private": true,
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,23 +12,32 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@googlemaps/react-wrapper": "^1.1.35",
+    "@googlemaps/typescript-guards": "^2.0.0",
+    "@prisma/client": "^4.0.0",
+    "@reduxjs/toolkit": "^1.8.3",
     "daisyui": "^2.17.0",
+    "fast-equals": "^4.0.1",
     "next": "12.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
+    "react-redux": "^8.0.2",
     "react-tsparticles": "^2.1.0",
     "tsparticles": "^2.1.0"
   },
   "devDependencies": {
-    "@types/node": "18.0.0",
+    "@types/googlemaps": "^3.43.3",
+    "@types/node": "^18.0.0",
     "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",
     "autoprefixer": "^10.4.7",
     "eslint": "8.18.0",
     "eslint-config-next": "12.2.0",
     "postcss": "^8.4.14",
+    "prisma": "^4.0.0",
     "tailwindcss": "^3.1.4",
-    "typescript": "4.7.4"
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.4"
   }
 }
