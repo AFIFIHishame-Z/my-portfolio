@@ -61,27 +61,31 @@ export default function HomeComponent() {
                 </button>
               </div>
               <div className="md:mt-12 mt-8 w-full  md:px-0 ">
-                <div className="stats stats-vertical lg:stats-horizontal shadow w-full md:py-2">
+                <div className="bg-white dark:bg-primary stats rounded-lg stats-vertical lg:stats-horizontal shadow w-full md:py-2">
                   <div className="stat ">
-                    <div className="stat-figure text-indigo-800 dark:text-indigo-600">
+                    <div className="stat-figure text-primary-light dark:text-sky-300">
                       <BiCollection className="text-4xl" />
                     </div>
-                    <div className="stat-title">Projects</div>
-                    <div className="stat-value text-indigo-800 dark:text-indigo-600">
+                    <div className="stat-title dark:text-sky-300">Projects</div>
+                    <div className="stat-value text-primary-light dark:text-sky-300">
                       26
                     </div>
                   </div>
 
                   <div className="stat">
-                    <div className="stat-figure text-fuchsia-700">
+                    <div className="stat-figure text-green-800 dark:text-green-300">
                       <RiAuctionFill className="text-4xl" />
                     </div>
-                    <div className="stat-title">Components</div>
-                    <div className="stat-value text-fuchsia-700">530</div>
+                    <div className="stat-title dark:text-green-300">
+                      Components
+                    </div>
+                    <div className="stat-value text-green-800 dark:text-green-300">
+                      530
+                    </div>
                   </div>
 
                   <div className="stat">
-                    <div className="stat-figure text-fuchsia-700">
+                    <div className="stat-figure ">
                       <div className="avatar-group -space-x-6">
                         <div className="avatar">
                           <div className="w-12">

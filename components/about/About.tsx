@@ -19,7 +19,7 @@ export default function About() {
   };
 
   return (
-    <div className="h-scree container mx-auto lg:flex p-2">
+    <div className="h-scree container mx-auto lg:flex p-3">
       <div className="lg:flex relative p-3 lg:p-5 space-x-10 bg-white dark:bg-primary  w-full rounded-lg">
         <div className="lg:w-1/2">
           <Image
@@ -37,7 +37,7 @@ export default function About() {
           <p className="text-primary dark:text-white text-lg lg:text-xl">
             Angular - Asp.net core | React - NextJs - Node
           </p>
-          <p className="text-lg text-primary dark:text-white mt-5">
+          <div className="text-lg text-primary dark:text-white mt-5">
             I am a full-stack developer, During this time I have worked on all
             layers of codes from database to UI. I have also been involved in
             all stages of a product life cycle from conceptualization and design
@@ -71,7 +71,7 @@ export default function About() {
             >
               More...
             </a>
-            <p className={`${readmore ? "block" : "hidden"}`}>
+            <div className={`${readmore ? "block" : "hidden"}`}>
               <ul className="pl-5">
                 <li>✅ Languages: JavaScript, TypeScript</li>
                 <li>✅ Framework: Next JS, ExpressJS, NestJs, Fastify </li>
@@ -101,13 +101,11 @@ export default function About() {
               </ul>
               <h1>🏅 DevOps 🏅</h1>
               <ul className="pl-5">
+                <li>✅ Docker</li>
+                <li>✅ CI & CD</li>
                 <li>
-                  ✅ Docker
-                  <li>✅ CI & CD</li>
-                  <li>
-                    ✅ DigitalOcean, Google Cloud, AWS, Azure, Vercel, Netlify,
-                    Heroku, Cloudflare Worker
-                  </li>
+                  ✅ DigitalOcean, Google Cloud, AWS, Azure, Vercel, Netlify,
+                  Heroku, Cloudflare Worker
                 </li>
               </ul>
               <h1>🏅 Tools 🏅</h1>
@@ -118,7 +116,7 @@ export default function About() {
                 <li>✅ API: Postman, Insomnia</li>
                 <li>✅ Swagger, Grahpql Playground</li>
               </ul>
-            </p>
+            </div>
             <a
               href="#about"
               onClick={toggleReadMore}
@@ -128,7 +126,7 @@ export default function About() {
             >
               Less
             </a>
-          </p>
+          </div>
         </div>
       </div>
     </div>
