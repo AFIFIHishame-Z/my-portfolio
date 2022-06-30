@@ -21,7 +21,9 @@ export default function About() {
   return (
     <div className="h-scree container mx-auto lg:flex p-3">
       <div className="lg:flex relative p-3 lg:p-5 space-x-10 bg-white dark:bg-primary  w-full rounded-lg">
-        <div className="lg:w-1/2">
+        <div className="relative lg:w-[700px]">
+          <div className="absolute rounded-full w-full h-full bg-gradient-to-t bottom-1 from-sky-700 via-transparent to-transparent z-20 " />
+
           <Image
             src={"/images/my_pic_2.jpg"}
             width={700}

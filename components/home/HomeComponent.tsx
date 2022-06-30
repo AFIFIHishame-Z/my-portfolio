@@ -2,8 +2,11 @@ import Image from "next/image";
 import React from "react";
 import { BiCollection } from "react-icons/bi";
 import { RiAuctionFill } from "react-icons/ri";
+import { useSelector } from "react-redux";
+import { connectedUser } from "~/slices/userSlice";
 
 export default function HomeComponent() {
+  const user = useSelector(connectedUser).user;
   return (
     <article>
       <div
@@ -25,25 +28,32 @@ export default function HomeComponent() {
               before:top-0
               before:blur-[30px]
               "
-      ></div>
-      <div className="container mx-auto my-5 md:py-12  lg:mt-14 px-3">
+      />
+      <div className="container mx-auto my-5 md:py-12  lg:mt-14 ">
         <div className="w-full lg:flex">
           <div className="w-full min-h-full lg:w-1/2 flex justify-center items-center">
             <div className="w-full">
               <div className="block w-full">
+                <h1 className="uppercase text-center lg:text-start font-bold text-indigo-200 text-2xl lg:text-4xl lg:my-5 w-auto">
+                  {user.firstName + " " + user.lastName}
+                </h1>
                 <h1 className="uppercase text-center lg:text-start font-bold text-indigo-200 text-xl lg:text-3xl lg:my-5 w-auto">
                   Senior Full-stack Developer
                 </h1>
-                <div className="lg:hidden my-5  z-0 flex justify-center">
-                  <Image
-                    src="/images/my_pic.png"
-                    alt="women-with-vr"
-                    width={200}
-                    height={200}
-                    priority
-                    objectFit="contain"
-                    className="rounded-full "
-                  />
+                <div className="lg:hidden  my-5  z-0 flex justify-center">
+                  <div className="relative">
+                    <div className="absolute rounded-l-full w-full h-full bg-gradient-to-r bottom-1  from-sky-700 via-transparent to-transparent z-20 " />
+
+                    <Image
+                      src="/images/my_pic.png"
+                      alt="women-with-vr"
+                      width={200}
+                      height={200}
+                      priority
+                      objectFit="contain"
+                      className="rounded-full "
+                    />
+                  </div>
                 </div>
               </div>
               <p className="text-white font-bold	text-3xl lg:text-6xl text-center">
@@ -53,12 +63,19 @@ export default function HomeComponent() {
                 ReactJS - NextJs | Angular - Asp.net Core | React Native
               </div>
               <div className="md:mt-12 mt-8 flex justify-center lg:justify-start space-x-3">
-                <button className="btn md:btn-wide bg-gradient-to-r from-primary-light to-blue-900 text-white border-none">
+                <a
+                  href={"#contact"}
+                  className="btn md:btn-wide bg-gradient-to-r from-primary-light to-blue-900 text-white border-none"
+                >
                   Contact
-                </button>
-                <button className="btn md:btn-wide bg-gradient-to-r from-green-500 to-green-900 text-white border-none">
+                </a>
+                <a
+                  href={user.upwork}
+                  target="_blank"
+                  className="btn md:btn-wide bg-gradient-to-r from-green-500 to-green-900 text-white border-none"
+                >
                   Upwork
-                </button>
+                </a>
               </div>
               <div className="md:mt-12 mt-8 w-full  md:px-0 ">
                 <div className="bg-white dark:bg-primary stats rounded-lg stats-vertical lg:stats-horizontal shadow w-full md:py-2">
@@ -119,7 +136,9 @@ export default function HomeComponent() {
               </div>
             </div>
           </div>
-          <div className="w-full  lg:w-1/2 min-h-full hidden lg:flex justify-center items-center">
+          <div className="w-full relative lg:w-1/2 min-h-full hidden lg:flex justify-center items-center">
+            <div className="absolute rounded-l-full w-full left-8 h-full bg-gradient-to-r bottom-0 from-sky-700 via-transparent to-transparent z-20 " />
+
             <Image
               src="/images/my_pic.png"
               alt="women-with-vr"
@@ -127,7 +146,7 @@ export default function HomeComponent() {
               height={700}
               priority
               objectFit="contain"
-              className="rounded-full"
+              className="rounded-l-full"
             />
           </div>
         </div>

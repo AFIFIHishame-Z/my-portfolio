@@ -7,7 +7,10 @@ import SocialMedia from "../SocialMedia";
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
 import Map from "./Map";
 import { Marker } from "./Marker";
+import { useSelector } from "react-redux";
+import { connectedUser } from "~/slices/userSlice";
 export default function Contact() {
+  const user = useSelector(connectedUser).user;
   const [clicks, setClicks] = React.useState<google.maps.LatLng[]>([]);
   const [zoom, setZoom] = React.useState(10); // initial zoom
   const [center, setCenter] = React.useState<google.maps.LatLngLiteral>({
@@ -16,7 +19,6 @@ export default function Contact() {
   });
 
   const onClick = (e: google.maps.MapMouseEvent) => {
-    // avoid directly mutating state
     setClicks([...clicks, e.latLng!]);
   };
 
@@ -37,7 +39,7 @@ export default function Contact() {
               </h1>
             </div>
             <div>
-              <Wrapper apiKey={"AIzaSyD5IfFK8uaIMg6PjOcW805-XbWC2paGrN8"}>
+              <Wrapper apiKey={process.env.NEXT_PUBLIC_MAPS_KEY!}>
                 <Map
                   center={center}
                   onClick={onClick}
@@ -93,19 +95,19 @@ export default function Contact() {
                 <span>
                   <SiGooglemaps className="text-xl" />
                 </span>
-                <span className="text-lg">Morocco, Fes</span>
+                <span className="text-lg">{user.address}</span>
               </div>
               <div className="flex items-center mt-4 space-x-2">
                 <span>
                   <BsTelephoneForwardFill className="text-xl" />
                 </span>
-                <span className="text-lg">+212646251144</span>
+                <span className="text-lg">{user.phone}</span>
               </div>
               <div className="flex items-center mt-4 space-x-2">
                 <span>
                   <MdAlternateEmail className="text-xl" />
                 </span>
-                <span className="text-lg">hishame.afifi1997@gmail.com</span>
+                <span className="text-lg">{user.email}</span>
               </div>
 
               <div className="flex items-center mt-4 space-x-2">
@@ -114,7 +116,7 @@ export default function Contact() {
                 </span>
                 <span className="text-lg hover:text-primary-light">
                   <a href="www.linkedin.com/in/afifihishame" target={"_blank"}>
-                    www.linkedin.com/in/afifihishame
+                    {user.linkedIn}
                   </a>
                 </span>
               </div>
@@ -128,6 +130,3 @@ export default function Contact() {
     </div>
   );
 }
-const render = (status: Status) => {
-  return <h1>{status}</h1>;
-};
