@@ -48,7 +48,7 @@ export default function CardItem(props: any) {
               {/* eslint-disable-next-line  */}
               <img
                 src={props.prj_thumb}
-                style={{ objectFit: "cover" }}
+                style={{ objectFit: "contain" }}
                 alt={props.prj_title}
                 className="w-full h-full rounded-xl shadow-md relative cursor-pointer hover:transform transition duration-500 hover:scale-105"
               />

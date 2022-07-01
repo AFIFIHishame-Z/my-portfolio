@@ -1,5 +1,27 @@
+import { Project } from "@prisma/client";
 import React from "react";
 import CardItem from "../CardItem";
+
+const projects: any = [
+  {
+    id: "1",
+    likes: 22,
+    link: "https://nft-marketplace-v2-psi.vercel.app/",
+    ownerId: "1",
+    repository: "https://github.com/weweb3/nft-marketplace",
+    title: "Nft Marketplace",
+    thumb: "/images/nftmarketplace.png",
+  },
+  {
+    id: "2",
+    likes: 56,
+    link: "https://amazon-store-v2-eallltdbq-afifi1234.vercel.app/",
+    ownerId: "1",
+    repository: "https://github.com/AFIFIHishame-Z/amazon-store-v2.0",
+    title: "Amazon store",
+    thumb: "/images/amazon_2.png",
+  },
+];
 
 export default function Projects() {
   return (
@@ -12,16 +34,16 @@ export default function Projects() {
             </h1>
           </div>
           <div className="rounded-box  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-3">
-            {Array.from({ length: 4 }).map((_, i) => (
-              <div key={i} className="mx-2 mt-2">
+            {projects.map((project: any) => (
+              <div key={project.id} className="mx-2 mt-2">
                 <CardItem
-                  prj_thumb="https://api.lorem.space/image/shoes"
-                  prj_title="Amazon store v2"
+                  prj_thumb={project.thumb}
+                  prj_title={project.title}
                   avatar="/images/my_pic_3.png"
-                  github_link="https://github.com/AFIFIHishame-Z/amazon-store-v2.0"
-                  likes="90"
+                  github_link={project.repository}
+                  likes={project.likes}
                   techs="ReactJs | NextJs"
-                  link="https://amazon-store-v2-cb81ks4k5-afifi1234.vercel.app/"
+                  link={project.link}
                 />
               </div>
             ))}
