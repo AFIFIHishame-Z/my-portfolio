@@ -7,6 +7,18 @@ import { connectedUser } from "~/slices/userSlice";
 
 export default function HomeComponent() {
   const user = useSelector(connectedUser).user;
+
+  const handleClick = (e: any) => {
+    e.preventDefault();
+    const target = e.target.getAttribute("href");
+    const location = document.querySelector(target)?.offsetTop;
+    if (location)
+      window.scrollTo({
+        left: 0,
+        top: location - 85,
+      });
+  };
+
   return (
     <article>
       <div
@@ -65,6 +77,7 @@ export default function HomeComponent() {
               <div className="md:mt-12 mt-8 flex justify-center lg:justify-start space-x-3">
                 <a
                   href={"#contact"}
+                  onClick={handleClick}
                   className="btn md:btn-wide bg-gradient-to-r from-primary-light to-blue-900 text-white border-none"
                 >
                   Contact
