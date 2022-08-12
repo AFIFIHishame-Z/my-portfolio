@@ -21,6 +21,16 @@ const projects: any = [
     title: "Amazon store",
     thumb: "/images/amazon_2.png",
   },
+  {
+    id: "3",
+    likes: 126,
+    link: "https://qatar-2022-predict-group-rankings.vercel.app/",
+    ownerId: "1",
+    repository:
+      "https://github.com/AFIFIHishame-Z/qatar-2022-predict-group-rankings",
+    title: "Predict the FIFA World Cup Qatar 2022 group rankings",
+    thumb: "/images/FIFA-World-Cup-Qatar-2022-emblem.webp",
+  },
 ];
 
 export default function Projects() {
