@@ -18,7 +18,7 @@ export default function CardItem(props: any) {
   return (
     <div
       onMouseLeave={() => setDisplayBlock(false)}
-      className="card w-auto shadow-xl bg-base-300 md:p-5"
+      className="card w-auto shadow-xl bg-base-300 md:p-5 max-h-[500px]"
     >
       <figure className="px-8 pt-10">
         <div className="flex justify-center items-center relative w-[255px] h-[264px]">
